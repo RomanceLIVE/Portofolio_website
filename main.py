@@ -9,7 +9,7 @@ col1, col2 = st.columns(2)
 
 
 with col1:
-    st.image("images/profilepic.png")
+    st.image("images/profilepic.png", width=450)
 #adds pic to column
 
 with col2:
@@ -19,3 +19,8 @@ with col2:
     """
     st.info(content)
     # we repalce st.write(content) with st.info(content)
+
+content2 = """
+Below you can find some of the apps i have built in Python. Feel free to contact me !
+"""
+st.write(content2)
