@@ -26,14 +26,26 @@ Below you can find some of the apps i have built in Python. Feel free to contact
 """
 st.write(content2)
 
-col3, col4 = st.columns(2)
+col3, empty_col, col4 = st.columns([1.5, 0.5, 1.5])
+#we added empty_col for space and width ratio dimmensions in st.columns
 
 df = pandas.read_csv("data_info.csv", sep=";")
             # we use sep to inform about the separator in data
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image("images/" + row["image"])
+        #st.write("[Source Code](https://github.com/RomanceLIVE)")
+        #we make the link dynamic
+        st.write(f"[Source Code]({row['url']})")
+        #reminder single quotes in if double qoutes out
+#we put the csv column addresses for each in square brackets
 
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
+        st.write(row["description"])
+        st.image("images/" + row["image"])
+#same info as col1, but we concat the col name with file name
+        st.write("[Source Code](https://github.com/RomanceLIVE)")
